@@ -1,12 +1,505 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Massimo del Turco – Teorema dell’Eleganza Evolutiva</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teorema dell’Eleganza Evolutiva – Massimo del Turco</title>
+    <meta name="description" content="Il Teorema dell’Eleganza Evolutiva propone un modello fisico-concettuale per descrivere come energia, informazione e stabilità si intrecciano nell’evoluzione dei sistemi complessi, dalle stelle alle civiltà tecnologiche." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050810;
+            --bg-alt: #0f1522;
+            --card-bg: #0c111d;
+            --text: #f5f7ff;
+            --muted: #a5afc7;
+            --accent: #3ea6ff;
+            --accent-soft: rgba(62, 166, 255, 0.12);
+            --border: #262e45;
+            --danger: #ff6b6b;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: radial-gradient(circle at top, #141b33 0, #050810 55%);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .page {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 32px 20px 64px;
+        }
+
+        header {
+            padding: 24px 0 32px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            margin-bottom: 24px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: rgba(12,17,29,0.9);
+            border: 1px solid rgba(255,255,255,0.07);
+            color: var(--muted);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 16px;
+        }
+
+        .badge-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 10px rgba(62,166,255,0.7);
+        }
+
+        h1 {
+            font-size: clamp(32px, 4vw, 40px);
+            margin: 0 0 6px;
+        }
+
+        .subtitle {
+            margin: 0;
+            font-size: 15px;
+            color: var(--muted);
+        }
+
+        .subtitle span {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .hero-grid {
+            margin-top: 28px;
+            display: grid;
+            grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.4fr);
+            gap: 24px;
+            align-items: stretch;
+        }
+
+        .hero-text {
+            font-size: 15px;
+            color: var(--muted);
+        }
+
+        .hero-card {
+            background: radial-gradient(circle at top left, rgba(62,166,255,0.18), transparent 70%),
+                        radial-gradient(circle at bottom right, rgba(111,76,255,0.18), transparent 70%),
+                        var(--card-bg);
+            border-radius: 18px;
+            padding: 16px 18px;
+            border: 1px solid rgba(255,255,255,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-card h2 {
+            margin: 0 0 8px;
+            font-size: 17px;
+        }
+
+        .hero-card p {
+            margin: 0 0 14px;
+            font-size: 14px;
+            color: #d0d6eb;
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .pill {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.13em;
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.12);
+            background: rgba(5,8,16,0.7);
+            color: var(--muted);
+        }
+
+        .pill strong {
+            color: var(--accent);
+        }
+
+        .sections {
+            margin-top: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        section {
+            background: rgba(7,10,20,0.94);
+            border-radius: 18px;
+            padding: 20px 18px;
+            border: 1px solid rgba(255,255,255,0.04);
+        }
+
+        section h2 {
+            font-size: 18px;
+            margin: 0 0 8px;
+        }
+
+        section h3 {
+            font-size: 15px;
+            margin: 16px 0 6px;
+        }
+
+        p {
+            font-size: 14px;
+            margin: 0 0 10px;
+            color: var(--muted);
+        }
+
+        ul {
+            padding-left: 18px;
+            margin: 4px 0 12px;
+        }
+
+        li {
+            font-size: 14px;
+            color: var(--muted);
+            margin-bottom: 4px;
+        }
+
+        .btn-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .btn-primary {
+            border-radius: 999px;
+            padding: 9px 18px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid rgba(62,166,255,0.9);
+            background: linear-gradient(135deg, rgba(62,166,255,0.18), rgba(62,166,255,0.04));
+            color: var(--text);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .btn-primary span.icon {
+            font-size: 16px;
+        }
+
+        .btn-secondary {
+            border-radius: 999px;
+            padding: 8px 16px;
+            font-size: 13px;
+            border: 1px solid rgba(255,255,255,0.18);
+            background: rgba(7,10,20,0.9);
+            color: var(--muted);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tagline {
+            font-size: 15px;
+            font-weight: 500;
+            color: #e1e6ff;
+            border-left: 3px solid var(--accent);
+            padding-left: 10px;
+            margin-top: 6px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.3fr);
+            gap: 20px;
+        }
+
+        .meta-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 14px;
+            margin-top: 6px;
+        }
+
+        .meta-item {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .meta-item span {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .kicker {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: var(--muted);
+            margin-bottom: 4px;
+        }
+
+        .quote {
+            font-size: 14px;
+            font-style: italic;
+            color: #d5dbf5;
+            border-left: 3px solid rgba(255,255,255,0.16);
+            padding-left: 10px;
+            margin-top: 8px;
+        }
+
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .chip {
+            font-size: 13px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(12,17,29,0.9);
+            border: 1px solid rgba(255,255,255,0.10);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--muted);
+        }
+
+        .chip span {
+            font-size: 15px;
+        }
+
+        footer {
+            margin-top: 28px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            font-size: 12px;
+            color: var(--muted);
+            text-align: left;
+        }
+
+        @media (max-width: 780px) {
+            .hero-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+            .grid-2 {
+                grid-template-columns: minmax(0, 1fr);
+            }
+            .page {
+                padding: 22px 16px 40px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Teorema dell’Eleganza Evolutiva</h1>
-    <p>Sito in fase di preparazione.</p>
+    <div class="page">
+        <header>
+            <div class="badge">
+                <span class="badge-dot"></span>
+                <span>Ricerca indipendente • 2025</span>
+            </div>
+            <h1>Teorema dell’Eleganza Evolutiva</h1>
+            <p class="subtitle">
+                Un modello per leggere la relazione tra <span>energia dissipata</span>, <span>informazione organizzata</span> e <span>stabilità</span> nei sistemi complessi.
+            </p>
+
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <p>
+                        Il Teorema dell’Eleganza Evolutiva propone un quadro fisico-concettuale per discutere perché alcune strutture resistono nel tempo mentre altre collassano. L’idea di fondo è che, in un universo vincolato da entropia e risorse finite, i sistemi complessi che imparano a usare energia in modo preciso per mantenere informazione stabile tendono a durare di più.
+                    </p>
+                    <p>
+                        Il modello introduce strumenti operativi come la <strong>Curva dell’Eleganza</strong>, il <strong>Rapporto di Eleganza (RE)</strong> e la <strong>Velocità evolutiva</strong>, applicabili a domini diversi: stelle, biosfere, reti neurali, architetture di IA, civiltà tecnologiche.
+                    </p>
+                </div>
+                <div class="hero-card">
+                    <h2>Documento di riferimento</h2>
+                    <p>
+                        La sintesi operativa presenta il Teorema in forma compatta: definizione, ambito di validità, predizioni falsificabili e un esempio di applicazione al cosiddetto “silenzio cosmico” (Paradosso di Fermi).
+                    </p>
+                    <div class="btn-row">
+                        <a class="btn-primary" href="Teorema_Eleganza_Evolutiva_Sintesi_Operativa.pdf" target="_blank" rel="noopener noreferrer">
+                            <span class="icon">📄</span>
+                            <span>Scarica la Sintesi Operativa (PDF)</span>
+                        </a>
+                        <a class="btn-secondary" href="#contatti">
+                            <span>✉️</span>
+                            <span>Richiedi confronto scientifico</span>
+                        </a>
+                    </div>
+                    <div style="margin-top: 12px;">
+                        <div class="pill-row">
+                            <div class="pill"><strong>Sistemi complessi</strong></div>
+                            <div class="pill">Energia &amp; informazione</div>
+                            <div class="pill">Stabilità a lungo termine</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="sections">
+
+            <section id="abstract">
+                <div class="kicker">Abstract esteso</div>
+                <h2>Che cos’è il Teorema dell’Eleganza Evolutiva</h2>
+                <p>
+                    Il Teorema nasce da una domanda semplice: come confrontare, con lo stesso linguaggio, la stabilità di una stella longeva, di una rete ecologica, di un cervello, di un sistema di IA o di una civiltà tecnologica? 
+                </p>
+                <p>
+                    In forma operativa, il Teorema afferma che, dato un sistema complesso aperto che scambia energia e informazione con l’ambiente, esistono configurazioni che, a parità di funzione, massimizzano l’informazione organizzata trattenuta e riducono la dissipazione superflua. Queste configurazioni hanno una probabilità maggiore di sopravvivere su scale temporali lunghe.
+                </p>
+                <p>
+                    Il modello non propone una nuova teoria fondamentale della fisica. Offre una cornice comparativa per ragionare su quali strutture riescono a restare in piedi sotto vincoli energetici reali, e su quali traiettorie portano invece a collasso, semplificazione forzata o degrado accelerato.
+                </p>
+                <p class="tagline">
+                    Non propone una profezia sul futuro dell’umanità. Presenta un modello per capire perché alcune strutture durano e altre no.
+                </p>
+            </section>
+
+            <section id="strumenti">
+                <div class="grid-2">
+                    <div>
+                        <div class="kicker">Strumenti concettuali</div>
+                        <h2>Curva dell’Eleganza, Rapporto di Eleganza, Velocità evolutiva</h2>
+                        <h3>Curva dell’Eleganza</h3>
+                        <p>
+                            Rappresenta in un piano “informazione organizzata – energia dissipata” le configurazioni possibili di un sistema. Esiste una regione centrale in cui, per ogni livello di informazione, la dissipazione resta compatibile con la sopravvivenza. Ai margini compaiono sistemi poveri di informazione o sistemi sovraccarichi, che tentano di gestire troppa complessità rispetto ai vincoli energetici.
+                        </p>
+                        <h3>Rapporto di Eleganza (RE)</h3>
+                        <p>
+                            Misura quanta informazione utile un sistema riesce a conservare rispetto alla dissipazione necessaria per farlo. Valori elevati indicano uso preciso dell’energia per mantenere strutture informative robuste; valori bassi segnalano spreco, fragilità o rumore.
+                        </p>
+                        <h3>Velocità evolutiva</h3>
+                        <p>
+                            È la variazione del Rapporto di Eleganza nel tempo. Permette di distinguere tra sistemi che stanno migliorando la propria struttura (RE in crescita), sistemi in plateau e sistemi che stanno entrando in una fase di degrado strutturale.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="kicker">Ambiti di applicazione</div>
+                        <h2>Dove può essere utile il modello</h2>
+                        <p>
+                            Il Teorema trova applicazione in tre domini principali:
+                        </p>
+                        <ul>
+                            <li><strong>Cosmologia e astrofisica</strong>: analisi di strutture longeve (stelle a bassa massa, sistemi planetari stabili, eventuali civiltà tecnologiche poco vistose).</li>
+                            <li><strong>Biologia e sistemi viventi</strong>: lettura dell’evoluzione come ricerca di configurazioni con RE crescente, compatibili con vincoli metabolici rigidi.</li>
+                            <li><strong>Intelligenza artificiale e reti cognitive</strong>: confronto tra architetture in termini di costo energetico per unità di informazione utile e stabilità delle prestazioni nel tempo.</li>
+                        </ul>
+                        <p>
+                            In tutti questi casi il Teorema non sostituisce le teorie di dominio. Serve a formulare domande comparabili su energia, informazione e stabilità a lungo termine.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="predizioni">
+                <div class="kicker">Falsificabilità</div>
+                <h2>Tre predizioni da mettere alla prova</h2>
+                <p>
+                    Per evitare che il modello resti nel vago, la Sintesi Operativa esplicita alcune predizioni, almeno qualitative, che in principio possono essere smentite da dati futuri.
+                </p>
+                <ul>
+                    <li><strong>Convergenza verso firme energetiche meno vistose</strong>: i sistemi complessi longevi tendono a ridurre la dissipazione esterna superflua e diventano più difficili da distinguere dal fondo.</li>
+                    <li><strong>Legame tra stabilità e uso efficiente dell’informazione</strong>: reti ecologiche, sistemi economici, architetture di IA che durano mostrano capacità superiore di filtrare il rumore e conservare informazione rilevante.</li>
+                    <li><strong>Finestra stretta per alta potenza e lunga durata</strong>: esiste un intervallo limitato in cui un sistema può mantenere insieme elevata potenza, elevata complessità e stabilità prolungata; fuori da questa finestra aumentano le probabilità di collasso o ristrutturazione drastica.</li>
+                </ul>
+                <p class="quote">
+                    Se in futuro osserveremo strutture estremamente potenti e durature prive di qualsiasi segno di ottimizzazione energetica, il Teorema verrà indebolito. La falsificabilità passa da qui.
+                </p>
+            </section>
+
+            <section id="silenzio-cosmico">
+                <div class="kicker">Banco di prova</div>
+                <h2>Il Grande Silenzio come test concettuale</h2>
+                <p>
+                    Il cosiddetto Paradosso di Fermi viene spesso raccontato con ipotesi psicologiche o sociologiche sulle civiltà aliene. Il Teorema offre un punto di vista diverso: il silenzio apparente della galassia può riflettere una selezione a favore di configurazioni energeticamente precise, poco vistose, difficili da distinguere dal rumore di fondo.
+                </p>
+                <p>
+                    Nella Sintesi Operativa il Grande Silenzio viene usato come banco di prova del modello: se le civiltà longeve convergono verso stati ad alta efficienza e bassa dissipazione esterna, l’assenza di segnali macroscopici diventa un dato coerente con la dinamica energetica dei sistemi complessi, non una prova di solitudine cosmica.
+                </p>
+            </section>
+
+            <section id="autore">
+                <div class="grid-2">
+                    <div>
+                        <div class="kicker">Autore</div>
+                        <h2>Massimo del Turco</h2>
+                        <p>
+                            Laureato in Scienze Statistiche ed Economiche, lavora da anni nell’analisi quantitativa dei sistemi complessi e nella modellizzazione dinamica: mercati finanziari, reti informative, processi evolutivi.
+                        </p>
+                        <p>
+                            Il lavoro sul Teorema dell’Eleganza Evolutiva nasce dall’integrazione tra teoria dell’informazione, dinamiche energetiche e osservazione comparata di strutture longeve in domini diversi: cosmologia, biologia, reti cognitive artificiali e naturali.
+                        </p>
+                        <div class="meta-list">
+                            <div class="meta-item"><span>Interessi:</span> sistemi complessi, stabilità strutturale, efficienza energetica, IA</div>
+                            <div class="meta-item"><span>Focal point:</span> criteri operativi per distinguere configurazioni effimere da configurazioni robuste</div>
+                        </div>
+                    </div>
+                    <div id="contatti">
+                        <div class="kicker">Contatti</div>
+                        <h2>Dialogo e revisioni</h2>
+                        <p>
+                            L’obiettivo di questa ricerca è stimolare confronto serio su energia, informazione e stabilità nei sistemi complessi. Ogni critica argomentata su impostazione, linguaggio o applicazioni è benvenuta.
+                        </p>
+                        <div class="contact-row">
+                            <div class="chip">
+                                <span>📧</span>
+                                <span>massimodelturco@gmail.com</span>
+                            </div>
+                            <div class="chip">
+                                <span>🔗</span>
+                                <span>LinkedIn: Massimo Del Turco</span>
+                            </div>
+                            <div class="chip">
+                                <span>𝕏</span>
+                                <span>@massimodelturco</span>
+                            </div>
+                        </div>
+                        <p style="margin-top: 12px; font-size: 13px;">
+                            Per richieste di confronto scientifico, inviti a seminari o suggerimenti bibliografici: specificare nell’oggetto <strong>“Eleganza Evolutiva – Revisione”</strong>.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            Teorema dell’Eleganza Evolutiva – Sintesi Operativa · Versione 2025<br />
+            Questo sito utilizza esclusivamente contenuti statici, senza tracciamento né raccolta di dati personali.
+        </footer>
+    </div>
 </body>
 </html>
+
