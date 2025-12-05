@@ -94,7 +94,6 @@
             font-size: 15px;
             color: var(--muted);
         }
-
         .subtitle span {
             color: var(--accent);
             font-weight: 500;
@@ -106,6 +105,25 @@
             grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.4fr);
             gap: 24px;
             align-items: stretch;
+        }
+
+        /* HERO IMAGE – NEW */
+        .hero-image-wrapper {
+            margin-top: 26px;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: radial-gradient(circle at top left, rgba(62,166,255,0.18), transparent 70%),
+                        radial-gradient(circle at bottom right, rgba(111,76,255,0.18), transparent 70%),
+                        #050814;
+        }
+
+        .hero-image-wrapper img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 320px;
+            object-fit: cover;
         }
 
         .hero-text {
