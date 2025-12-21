@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>The Evolutionary Elegance Theorem – Massimo del Turco</title>
+  <meta name="description" content="A physical–conceptual framework describing why complex systems persist over time under energetic constraints, linking energy dissipation, organised information, and long-term stability." />
+  <meta name="theme-color" content="#050810" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.massimodelturco.com/index-en.html">
+
+  <!-- Alternate languages (adjust if your canonical URLs differ) -->
+  <link rel="alternate" hreflang="it" href="https://www.massimodelturco.com/">
+  <link rel="alternate" hreflang="en" href="https://www.massimodelturco.com/index-en.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.massimodelturco.com/">
+
+  <!-- Icons -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="any">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/favicon-64.png" type="image/png" sizes="64x64">
+  <link rel="icon" href="/favicon-128.png" type="image/png" sizes="128x128">
+  <link rel="icon" href="/favicon-256.png" type="image/png" sizes="256x256">
+  <link rel="icon" href="/favicon-512.png" type="image/png" sizes="512x512">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #050810;
+      --bg-alt: #0f1522;
+      --card-bg: #0c111d;
+      --text: #f5f7ff;
+      --muted: #a5afc7;
+      --accent: #3ea6ff;
+      --accent-soft: rgba(62, 166, 255, 0.12);
+      --border: #262e45;
+      --danger: #ff6b6b;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #141b33 0, #050810 55%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+    }
+
+    header {
+      padding: 24px 0 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 24px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(12,17,29,0.9);
+      border: 1px solid rgba(255,255,255,0.07);
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 10px;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px rgba(62,166,255,0.7);
+    }
+
+    .lang-switch {
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    h1 {
+      font-size: clamp(32px, 4vw, 40px);
+      margin: 0 0 6px;
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .subtitle span { color: var(--accent); font-weight: 500; }
+
+    .hero-image-wrapper {
+      margin-top: 26px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      background:
+        radial-gradient(circle at top left, rgba(62,166,255,0.18), transparent 70%),
+        radial-gradient(circle at bottom right, rgba(111,76,255,0.18), transparent 70%),
+        #050814;
+    }
+
+    .hero-image-wrapper img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 320px;
+      object-fit: cover;
+    }
+
+    .hero-grid {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.4fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .hero-text { font-size: 15px; color: var(--muted); }
+
+    .hero-card {
+      background:
+        radial-gradient(circle at top left, rgba(62,166,255,0.18), transparent 70%),
+        radial-gradient(circle at bottom right, rgba(111,76,255,0.18), transparent 70%),
+        var(--card-bg);
+      border-radius: 18px;
+      padding: 16px 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card h2 { margin: 0 0 8px; font-size: 17px; }
+
+    .hero-card p {
+      margin: 0 0 14px;
+      font-size: 14px;
+      color: #d0d6eb;
+    }
+
+    .pill-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .pill {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(5,8,16,0.7);
+      color: var(--muted);
+    }
+
+    .pill strong { color: var(--accent); }
+
+    .sections {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    section {
+      background: rgba(7,10,20,0.94);
+      border-radius: 18px;
+      padding: 20px 18px;
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+
+    section h2 { font-size: 18px; margin: 0 0 8px; }
+    section h3 { font-size: 15px; margin: 16px 0 6px; }
+
+    p { font-size: 14px; margin: 0 0 10px; color: var(--muted); }
+
+    ul { padding-left: 18px; margin: 4px 0 12px; }
+    li { font-size: 14px; color: var(--muted); margin-bottom: 4px; }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .btn-primary {
+      border-radius: 999px;
+      padding: 9px 18px;
+      font-size: 14px;
+      font-weight: 500;
+      border: 1px solid rgba(62,166,255,0.9);
+      background: linear-gradient(135deg, rgba(62,166,255,0.18), rgba(62,166,255,0.04));
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .btn-primary span.icon { font-size: 16px; }
+
+    .btn-secondary {
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-size: 13px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(7,10,20,0.9);
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tagline {
+      font-size: 15px;
+      font-weight: 500;
+      color: #e1e6ff;
+      border-left: 3px solid var(--accent);
+      padding-left: 10px;
+      margin-top: 6px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.3fr);
+      gap: 20px;
+    }
+
+    .meta-list { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 6px; }
+    .meta-item { font-size: 13px; color: var(--muted); }
+    .meta-item span { color: var(--accent); font-weight: 500; }
+
+    .kicker {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .quote {
+      font-size: 14px;
+      font-style: italic;
+      color: #d5dbf5;
+      border-left: 3px solid rgba(255,255,255,0.16);
+      padding-left: 10px;
+      margin-top: 8px;
+    }
+
+    .emphasis {
+      font-size: 14px;
+      color: #e1e6ff;
+      border-left: 3px solid rgba(255,255,255,0.16);
+      padding-left: 10px;
+      margin-top: 8px;
+      margin-bottom: 10px;
+    }
+
+    .contact-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+
+    .chip {
+      font-size: 13px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(12,17,29,0.9);
+      border: 1px solid rgba(255,255,255,0.10);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+    }
+
+    .chip a { color: var(--muted); text-decoration: none; }
+    .chip a:hover { text-decoration: underline; color: #d5dbf5; }
+
+    footer {
+      margin-top: 28px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      font-size: 12px;
+      color: var(--muted);
+      text-align: left;
+    }
+
+    @media (max-width: 780px) {
+      .hero-grid { grid-template-columns: minmax(0, 1fr); }
+      .grid-2 { grid-template-columns: minmax(0, 1fr); }
+      .page { padding: 22px 16px 40px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <div class="badge">
+        <span class="badge-dot"></span>
+        <span>Independent research • 2025</span>
+      </div>
+
+      <div class="lang-switch">
+        <a href="/">IT</a> | EN
+      </div>
+
+      <h1>The Evolutionary Elegance Theorem</h1>
+      <p class="subtitle">
+        A model to read the relationship between <span>energy dissipation</span>, <span>organised information</span>, and <span>long-term stability</span> in complex systems.
+      </p>
+
+      <div class="hero-image-wrapper">
+        <img src="hero-eleganza.png" alt="Abstract representation of the Evolutionary Elegance Theorem">
+      </div>
+
+      <div class="hero-grid">
+        <div class="hero-text">
+          <p>
+            The Evolutionary Elegance Theorem proposes a physical–conceptual framework to describe why certain complex systems, from stars to neural networks, from biospheres to technological civilisations, manage to maintain structure and functionality over time under real energetic constraints.
+          </p>
+          <p>
+            The central idea is that there is a systematic relationship between three quantities: energy dissipated by a system, organised information that the system manages to retain, and degree of stability on long time scales. The Theorem introduces tools such as the <strong>Elegance Curve</strong>, the <strong>Elegance Ratio (ER)</strong>, and <strong>evolutionary velocity</strong> to represent this relationship in an operational way.
+          </p>
+        </div>
+
+        <div class="hero-card">
+          <h2>Reference document</h2>
+          <p>
+            The operational summary presents the Theorem in compact form, clarifies its limits, proposes falsifiable predictions, and offers a test case via the so-called “cosmic silence” (the Fermi Paradox).
+          </p>
+
+          <div class="btn-row">
+            <a class="btn-primary" href="Evolutionary_Elegance_Theorem_Operational_Summary.pdf" target="_blank" rel="noopener noreferrer">
+              <span class="icon">📄</span>
+              <span>Download the Operational Summary (PDF)</span>
+            </a>
+            <a class="btn-secondary" href="#contact">
+              <span>✉️</span>
+              <span>Request scientific feedback</span>
+            </a>
+          </div>
+
+          <div style="margin-top: 12px;">
+            <div class="pill-row">
+              <div class="pill"><strong>Complex systems</strong></div>
+              <div class="pill">Energy &amp; information</div>
+              <div class="pill">Long-term stability</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="sections">
+      <section id="abstract">
+        <div class="kicker">Extended abstract</div>
+        <h2>What the Evolutionary Elegance Theorem is</h2>
+        <p>
+          In recent decades we have accumulated increasingly detailed descriptions of physical, biological and technological phenomena. What is missing is a synthetic criterion that allows us to compare, using the same language, the stability of a long-lived star, an ecological network, a brain, an AI network or a technological civilisation.
+        </p>
+        <p>
+          The Evolutionary Elegance Theorem is proposed with this purpose: to provide a unified language for discussing why certain structures remain standing and others dissolve, in a universe bound by entropy, energetic costs and memory limits.
+        </p>
+
+        <h3>Operational statement</h3>
+        <p class="emphasis">
+          <strong>
+            The Evolutionary Elegance Theorem states that, in a universe subject to entropic constraints, the long-term dynamics of complex systems tends to favour those configurations that are able to sustain organised information at an increasingly reduced energetic cost relative to the complexity they maintain.
+          </strong>
+        </p>
+
+        <p>
+          Consider an open complex system that exchanges energy and information with its environment. Each of its configurations can be described by the ratio between organised, useful information retained by the system and energetic dissipation required to sustain it.
+        </p>
+
+        <p>
+          We define in compact form the <strong>Elegance Ratio</strong>:
+        </p>
+        <p class="quote">
+          <strong>ER = Iu / E</strong>
+        </p>
+        <p>
+          where <strong>Iu</strong> is the amount of useful, structural, non-random information that contributes to the system’s stability, and <strong>E</strong> is the <strong>irreversibly dissipated</strong> energy required to produce, update, and maintain that information (heat, noise, friction, and non-functional redundancies). The way <strong>Iu</strong> is estimated depends on the domain, yet the selective logic remains the same: what survives is what manages to maintain effective order at a finite energetic cost.
+        </p>
+
+        <p class="tagline">
+          The goal is not to predict individual events. It is to provide criteria for distinguishing, within a chaotic flow, configurations that have a higher probability of persisting from those more likely to dissolve.
+        </p>
+      </section>
+
+      <section id="tools">
+        <div class="grid-2">
+          <div>
+            <div class="kicker">Conceptual tools</div>
+            <h2>Elegance Curve, Elegance Ratio, evolutionary velocity</h2>
+
+            <h3>Elegance Curve</h3>
+            <p>
+              The Curve represents, in the plane “organised information (horizontal axis) – dissipated energy (vertical axis)”, a qualitative projection of the configurations accessible to a complex system. It is not a universal property of the universe, but an operational model that summarises the relationship between complexity, dissipation and stability.
+            </p>
+
+            <h3>Elegance Ratio (ER)</h3>
+            <p>
+              The ER indicates how much organised, useful information is retained per unit of dissipated energy. High values correspond to greater efficiency and higher stability; low values signal waste, vulnerability, or noise.
+            </p>
+
+            <h3>Evolutionary velocity</h3>
+            <p>
+              Evolutionary velocity is the variation of the Elegance Ratio over time. Positive values indicate that the system increases useful information per unit of dissipation; values near zero indicate a plateau; negative values indicate degradation of energetic–informational efficiency.
+            </p>
+          </div>
+
+          <div>
+            <div class="kicker">Domains of application</div>
+            <h2>Where the model can be useful</h2>
+            <p>
+              The Theorem can be discussed across domains that differ in scale and units, provided it is possible to identify:
+            </p>
+            <ul>
+              <li>a physical cost for maintaining order,</li>
+              <li>some form of organised information,</li>
+              <li>a time horizon over which to assess survival.</li>
+            </ul>
+            <p>
+              In practice, this includes cosmology and astrophysics, biology and living systems, AI and cognitive networks, as well as technological civilisations treated as information-processing structures under energetic constraints.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="predictions">
+        <div class="kicker">Falsifiability</div>
+        <h2>Three falsifiable predictions</h2>
+        <p>
+          To prevent the model from remaining in the realm of vague ideas, it is essential to express some predictions – at least qualitative – that can in principle be refuted.
+        </p>
+
+        <h3>Prediction 1 – Convergence towards less conspicuous energetic signatures</h3>
+        <p>
+          If the Theorem is valid, long-lived complex systems should exhibit over time a reduction in external dissipation that is not required for the function they perform, and a tendency to minimise energetic footprints that are easily detectable from the outside.
+        </p>
+
+        <h3>Prediction 2 – Correlation between long-term stability and efficient use of information</h3>
+        <p>
+          Across domains (ecological networks, economic systems, AI architectures), long-term stability should correlate with superior capacity to filter noise, retain relevant information, and maintain effective order at finite energetic cost.
+        </p>
+
+        <h3>Prediction 3 – A narrow window for high complexity and long duration</h3>
+        <p>
+          There exists a limited interval in which a system can sustain high complexity while keeping dissipation compatible with long-term stability; outside this window, the probability of collapse, simplification, or drastic reorganisation increases.
+        </p>
+
+        <p class="quote">
+          If, in the future, extremely powerful and long-lived structures were observed that show no trace of energetic or informational optimisation — that is, systems with systematically low ER relative to the complexity they sustain over long periods — the structure of the Theorem would be strongly weakened.
+        </p>
+      </section>
+
+      <section id="cosmic-silence">
+        <div class="kicker">Test case</div>
+        <h2>The Great Silence as a test case</h2>
+        <p>
+          The so-called Fermi Paradox can be viewed as a test for the Theorem: many planets and many opportunities for life, yet no unequivocal artificial signals and a galaxy that, at first glance, seems quieter than expected.
+        </p>
+        <p>
+          The hypothesis compatible with the Theorem is restrained: long-lived complex systems often reduce visible dissipation and organise information into internal, precise and unobtrusive structures. If very long-lived civilisations exist, it is plausible that they evolve towards energetically more precise and less conspicuous configurations than their initial phases.
+        </p>
+        <p>
+          In this framework, the apparent silence does not necessarily indicate an absence of advanced civilisations; it may indicate that mature systems become difficult to distinguish from the background precisely because they use energy with precision and limit superfluous energetic leakage.
+        </p>
+      </section>
+
+      <section id="author">
+        <div class="grid-2">
+          <div>
+            <div class="kicker">Author</div>
+            <h2>Massimo del Turco</h2>
+            <p>
+              Massimo del Turco holds a degree in Statistical and Economic Sciences. He has worked for years in quantitative modelling, with a focus on complex systems, dynamic processes and the stability of informational structures.
+            </p>
+            <p>
+              The work on the Evolutionary Elegance Theorem arises from the integration of systems analysis, information theory, energetic dynamics and comparative observation of complex phenomena across domains: cosmology, biology, cognitive networks and emerging technologies.
+            </p>
+            <div class="meta-list">
+              <div class="meta-item"><span>Focus:</span> complex systems, structural stability, energetic efficiency, AI</div>
+              <div class="meta-item"><span>Goal:</span> operational criteria to distinguish fragile configurations from robust ones</div>
+            </div>
+          </div>
+
+          <div id="contact">
+            <div class="kicker">Contact</div>
+            <h2>Dialogue and review</h2>
+            <p>
+              The goal of this work is to stimulate serious discussion on energy, information, and long-term stability in complex systems. Critical feedback on assumptions, language, or applications is welcome.
+            </p>
+
+            <div class="contact-row">
+              <div class="chip">
+                <span>📧</span>
+                <a href="mailto:massimodelturco@gmail.com">massimodelturco@gmail.com</a>
+              </div>
+              <div class="chip">
+                <span>🔗</span>
+                <a href="https://www.linkedin.com/in/massimo-del-turco/" target="_blank" rel="noopener noreferrer">LinkedIn: Massimo Del Turco</a>
+              </div>
+              <div class="chip">
+                <span>𝕏</span>
+                <a href="https://x.com/massimodelturco" target="_blank" rel="noopener noreferrer">@massimodelturco</a>
+              </div>
+            </div>
+
+            <p style="margin-top: 12px; font-size: 13px;">
+              For review requests, seminar invitations, or bibliographic suggestions, please use the subject line <strong>“Evolutionary Elegance – Review”</strong>.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      The Evolutionary Elegance Theorem – Operational Summary · 2025<br />
+      This website serves static content only, with no tracking and no collection of personal data.
+    </footer>
+  </div>
+</body>
+</html>
